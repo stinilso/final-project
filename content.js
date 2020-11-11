@@ -1,2 +1,2 @@
 // content.js
-alert("Hello from your Chrome extension!");
+alert("Welcome to the extension! Click OK to begin.");
