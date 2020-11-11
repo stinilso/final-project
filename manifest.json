@@ -19,4 +19,5 @@
   "manifest_version": 2,
   "page_action": {
      "default_popup": "popup.html"
+   }
 }
