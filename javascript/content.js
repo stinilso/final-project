@@ -1,2 +1,2 @@
 // content.js
-alert("Welcome to the extension! Click OK to begin.");
+alert("Hi! This is the annoying extension prototype test.");
