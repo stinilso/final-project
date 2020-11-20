@@ -4,7 +4,7 @@
   "description": "Trying to build an extension",
   "permissions": ["storage"],
   "background": {
-      "scripts": ["background.js"],
+      "scripts": ["javascript/background.js"],
       "persistent": false
     },
   "content_scripts": [
@@ -13,14 +13,15 @@
         "<all_urls>"
       ],
       "js": [
-        "content.js",
-        "jquery-3.5.1.js"
+        "javascript/content.js",
+        "javascript/jquery-3.5.1.js"
       ]
     }
   ],
 
   "manifest_version": 2,
   "page_action": {
-     "default_popup": "popup.html"
+     "default_popup": "html-interface/popup.html",
+     "default_modal": "html-interface/modal.html"
    }
 }
