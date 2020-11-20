@@ -18,5 +18,5 @@ The general structure:
   2. Measuring page scrolling with a notification once time is up
     a. How I plan to measure page scrolling:
       https://scrolldepth.parsnip.io/
-    b. 
+    b.
   3. Results/display page

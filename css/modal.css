@@ -1,0 +1,37 @@
+/* Modal CSS */
+
+/*
+papaya: #e26e5c
+burgundy: #723d46
+weird green: #d5b941
+*/
+
+.outer-box {
+  background-color: #723d46;
+}
+
+.inner-box {
+  background-color: #e26e5c;
+  padding: 15px;
+}
+
+.exit-button {
+  background-color: #d5b941;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.modal-text {
+  font-family: 'Helvetica';
+}
+
+.modal-text h3 {
+  font-weight: bold;
+  font-style: italic;
+  color: #723d46;
+}
+
+.modal-text p {
+  font-style: italic;
+  color: white;
+}
