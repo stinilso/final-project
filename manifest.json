@@ -21,9 +21,12 @@
   ],
 
   "manifest_version": 2,
-  "page_action": {
-     "default_icon": "icon.png",
-     "default_popup": "html-interface/popup.html",
-     "default_modal": "html-interface/modal.html"
+  "browser_action": {
+    "default_icon": {
+            "16": "icons_and_such/icon_walk_test_16",
+            "24": "icons_and_such/icon_walk_test_24",
+            "32": "icons_and_such/icon_walk_test_32"
+    },
+    "default_popup": "html-interface/popup.html"
    }
 }

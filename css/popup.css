@@ -35,3 +35,10 @@ weird green: #d5b941
   font-style: italic;
   color: white;
 }
+
+.highlight-box {
+  width: 150px;
+  height: 40px;
+  background-color: #d5b941;
+  border-radius: 5px;
+}
