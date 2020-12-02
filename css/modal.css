@@ -16,6 +16,7 @@ weird green: #d5b941
 
 #accent-font {
   font-family: 'Anton', Helvetica, sans-serif;
+  letter-spacing: 2px;
 }
 
 body {
@@ -66,13 +67,9 @@ body {
   top: -20px;
 }
 
-.modal-text h2 {
-}
-
 .modal-text h3 {
   font-style: italic;
   font-size: 20px;
-  letter-spacing: 2px;
 }
 
 .highlight-box {
