@@ -3,8 +3,20 @@
 /*
 papaya: #e26e5c
 burgundy: #723d46
+dark burg: #472d30
 weird green: #d5b941
 */
+
+/* fonts */
+@font-face {
+  font-family: 'Anton';
+  src: url('../css/Anton/Anton-regular.ttf')
+  format('truetype');
+}
+
+#accent-font {
+  font-family: 'Anton', Helvetica, sans-serif;
+}
 
 body {
   margin: 0px;
