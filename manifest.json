@@ -13,9 +13,8 @@
         "<all_urls>"
       ],
       "js": [
-        "javascript/background.js",
-        "javascript/content.js",
-        "javascript/jquery-3.5.1.js"
+        "javascript/jquery-3.5.1.js",
+        "javascript/content.js"
       ]
     }
   ],
