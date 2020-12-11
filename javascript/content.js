@@ -24,7 +24,7 @@ function displayResults() {
 }
 
 
-$("body").append("<button style='width:130px; height:50px; z-index:2147483646; background-color:#d5b941; border-color:#e26e5c; border-width:4px; border-radius:10px; position:fixed; bottom:25px; right:25px; color:#723d46; font-size:18px; font-weight:bold; font-family:'Helvetica';' id='start-button'>Click here!</button>");
+$("body").append("<button style='width:130px; height:50px; z-index:2147483646; background-color:#d5b941; border-color:#e26e5c; border-width:4px; border-radius:10px; position:fixed; bottom:25px; right:25px; color:#723d46; font-size:18px; font-weight:bold; font-family:'Helvetica';' id='start-button'>Start Scrolling!</button>");
 $(document).on("click", "#start-button", function() {
   //alert("test");
   checkTimerID = setInterval(calculateScroll, intervalTime);
