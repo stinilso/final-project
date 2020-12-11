@@ -9,7 +9,7 @@ var currentPosition;
 var totalDistanceScrolled;
 
 
-// 1 second interval timer
+// Scroll calculator with 1 second interval timer
 function calculateScroll() {
     var newPosition = window.pageYOffset;
     var intervalDistanceScrolled = Math.abs(newPosition - currentPosition);
@@ -21,10 +21,11 @@ function calculateScroll() {
 function displayResults() {
   clearInterval(checkTimerID);
   alert(totalDistanceScrolled);
+  $("body").append(modal.html);
 }
 
 
-$("body").append("<button style='width:130px; height:50px; z-index:2147483646; background-color:#d5b941; border-color:#e26e5c; border-width:4px; border-radius:10px; position:fixed; bottom:25px; right:25px; color:#723d46; font-size:18px; font-weight:bold; font-family:'Helvetica';' id='start-button'>Start Scrolling!</button>");
+$("body").append("<button style='width:130px; height:50px; z-index:2147483646; background-color:#d5b941; border-color:#e26e5c; border-width:4px; border-radius:10px; position:fixed; bottom:25px; right:25px; color:#723d46; font-size:14px; font-weight:bold; font-family:'Helvetica';' id='start-button'>Start Scrolling!</button>");
 $(document).on("click", "#start-button", function() {
   //alert("test");
   checkTimerID = setInterval(calculateScroll, intervalTime);
