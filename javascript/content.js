@@ -1,19 +1,21 @@
 
-var maxTime = 5000;
+var maxTime = 10000;
 var intervalTime = 1000;
 var currentTime = 0;
 var calculateScroll;
 var displayResultsTimerID;
-
 var currentPosition;
-var totalDistanceScrolled;
+var totalPixelsScrolled;
+var totalFeetScrolled;
+var feetPerPixel = 0.00086805544619423;
 
 
 // Scroll calculator with 1 second interval timer
 function calculateScroll() {
     var newPosition = window.pageYOffset;
-    var intervalDistanceScrolled = Math.abs(newPosition - currentPosition);
-    totalDistanceScrolled += intervalDistanceScrolled;
+    var intervalPixelsScrolled = Math.abs(newPosition - currentPosition);
+    totalPixelsScrolled += intervalPixelsScrolled;
+    totalFeetScrolled = totalPixelsScrolled * feetPerPixel;
     currentPosition = newPosition;
 }
 
