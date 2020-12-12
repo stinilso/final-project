@@ -125,6 +125,7 @@ var displayResultsTimerID;
 var currentPosition;
 var totalPixelsScrolled;
 var totalFeetScrolled;
+var totalFeetScrolledString;
 var feetPerPixel = 0.00086805544619423;
 
 // Scroll calculator with 1 second interval timer
@@ -136,18 +137,18 @@ function calculateScroll() {
     currentPosition = newPosition;
 }
 
-// 5 minute timer
-function displayResults() {
+// Results Modal display wth a 5 minute timer
+function displayResults(totalFeetScrolled) {
   clearInterval(checkTimerID);
-  alert("You have scrolled " + totalFeetScrolled + " feet in the past 10 seconds.");
   //display:block and position:fixed
   $(".sc-outer-box").css({"display": "block", "position": "fixed"});
+  var totalFeetScrolledString = num.toString(totalFeetScrolled);
+  console.log(totalFeetScrolledString);
 }
 
 
 $("body").append(createButton);
 $("head").append(modalCSS);
-console.log("CSS added");
 $("body").append(modalHTML);
 $(document).on("click", "#sc-start-button", function() {
   //alert("test");
