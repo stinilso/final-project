@@ -33,7 +33,7 @@ var modalHTML = "<!-- Outer box color --> \
           <h1>Results</h1> \
           <p class='sc-results-text'>You have scrolled approximately</p> \
           <div class='sc-highlight-box'> \
-            <h2 id='sc-results-number'>some number</h2> \
+            <h2 id='sc-results-number'> feet</h2> \
           </div> \
           <p class='sc-results-text'>in the last 5 minutes!</p> \
         </div> \
@@ -138,12 +138,12 @@ function calculateScroll() {
 }
 
 // Results Modal display wth a 5 minute timer
-function displayResults(totalFeetScrolled) {
+function displayResults() {
   clearInterval(checkTimerID);
   //display:block and position:fixed
   $(".sc-outer-box").css({"display": "block", "position": "fixed"});
-  var totalFeetScrolledString = num.toString(totalFeetScrolled);
-  console.log(totalFeetScrolledString);
+  //var totalFeetScrolledString = String(totalFeetScrolled);
+  $("#sc-results-number").prepend(totalFeetScrolled);
 }
 
 
