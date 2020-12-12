@@ -22,5 +22,7 @@
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "html-interface/popup.html"
-   }
+  },
+
+   "icons": {"48": "../icons-and-such/icon48.png"},
 }

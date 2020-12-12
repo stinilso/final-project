@@ -20,7 +20,6 @@ id='sc-start-button'> \
 Start Scrolling! \
 </button>";
 
-/*jshint multistr: true */
 var modalHTML = "<!-- Outer box color --> \
     <div class='sc-outer-box'> \
       <!-- Inner box color --> \
@@ -41,7 +40,6 @@ var modalHTML = "<!-- Outer box color --> \
       </div> \
     </div>";
 
-/*jshint multistr: true */
 var modalCSS = "<style> \
 @font-face { \
   font-family: 'Anton'; \
