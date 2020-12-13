@@ -134,7 +134,7 @@ var modalCSS = "<style> \
 </style>";
 
 // Other variables for the functions
-var maxTime = 10000;
+var maxTime = 300000;
 var intervalTime = 1000;
 var currentTime = 0;
 var calculateScroll;
@@ -155,6 +155,8 @@ function calculateScroll() {
 function displayResults() {
   // Uses the Interval ID to stop the calculateScroll function
   clearInterval(checkTimerID);
+  // Button back to normal
+  $("#sc-start-button").css({"background-color": "#d5b941", "color": "#723d46", "font-style": "normal"});
   // Modal visible once time's up
   $(".sc-outer-box").css({"display": "block", "position": "fixed"});
   var totalFeetScrolled = Math.round(totalPixelsScrolled * feetPerPixel);
@@ -162,7 +164,7 @@ function displayResults() {
   // Results added as a string to the body of the modal
   $("#sc-results-number").text(totalFeetScrolledString + " feet");
   // Clicking the 'x' button closes the modal
-  $(document).on("click", ".sc-exit-button", function() {
+  $(document).on("click", "#sc-exit-button-x", function() {
     $(".sc-outer-box").css("display", "none");
   });
 }
@@ -182,4 +184,6 @@ $(document).on("click", "#sc-start-button", function() {
   checkTimerID = setInterval(calculateScroll, intervalTime);
   // Returns the Timeout ID and calls the displayResults function after 5 minutes
   displayResultsTimerID = setTimeout(displayResults, maxTime);
+  // Button appearance changes
+  $("#sc-start-button").css({"background-color": "#723d46", "color": "#d5b941", "font-style": "italic"});
 });
