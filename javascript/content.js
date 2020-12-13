@@ -26,6 +26,7 @@ var modalHTML = "<!-- Outer box color --> \
       <div class='sc-inner-box'> \
         <!-- Button to close modal --> \
         <div class='sc-exit-button'> \
+        <p id='sc-exit-button-x'>x</p> \
         </div> \
         <!-- Popup text --> \
         <div class='sc-modal-text'> \
@@ -33,7 +34,7 @@ var modalHTML = "<!-- Outer box color --> \
           <h1>Results</h1> \
           <p class='sc-results-text'>You have scrolled approximately</p> \
           <div class='sc-highlight-box'> \
-            <h2 id='sc-results-number'> feet</h2> \
+            <h2 id='sc-results-number'></h2> \
           </div> \
           <p class='sc-results-text'>in the last 5 minutes!</p> \
         </div> \
@@ -58,8 +59,9 @@ var modalCSS = "<style> \
   z-index: 2147483646; \
   display: none; \
   margin: 40px; \
-  top: 50px; \
-  right: 50px; \
+  left: 50%; \
+  top: 50%; \
+  transform: translate(-50%, -50%); \
 } \
 .sc-inner-box { \
   background-color: #e26e5c; \
@@ -71,19 +73,26 @@ var modalCSS = "<style> \
   margin-left: 15px; \
 } \
 .sc-exit-button { \
-  width: 25px; \
-  height: 25px; \
+  width: 30px; \
+  height: 30px; \
   background-color: #d5b941; \
   position: relative; \
-  left: 435px; \
+  left: 430px; \
   top: 10px; \
+} \
+.sc-exit-button-x { \
+  font-family: 'Anton', Helvetica, sans-serif; \
+  font-size: 30px; \
+  color: #723d46; \
+  font-weight: bold; \
+  text-align: center; \
 } \
 .sc-modal-text { \
   font-family: 'Helvetica'; \
   color: #472d30; \
   margin-left: 20px; \
   position: relative; \
-  top: -30px; \
+  top: 0px; \
 } \
 .sc-modal-text h1 { \
   font-style: italic; \
@@ -91,7 +100,7 @@ var modalCSS = "<style> \
   font-size: 52px; \
   letter-spacing: 3px; \
   position: relative; \
-  top: -20px; \
+  top: 0px; \
 } \
 .sc-modal-text h3 { \
   font-style: italic; \
@@ -107,13 +116,13 @@ var modalCSS = "<style> \
   align-items: center; \
   margin: auto; \
   position: relative; \
-  top: -5px; \
+  top: 0px; \
 } \
 .sc-results-text { \
   display: flex; \
   justify-content: center; \
   position: relative; \
-  top: -5px; \
+  top: 0px; \
 } \
 </style>";
 
@@ -142,8 +151,11 @@ function displayResults() {
   clearInterval(checkTimerID);
   //display:block and position:fixed
   $(".sc-outer-box").css({"display": "block", "position": "fixed"});
-  //var totalFeetScrolledString = String(totalFeetScrolled);
-  $("#sc-results-number").prepend(totalFeetScrolled);
+  var totalFeetScrolledString = String(totalFeetScrolled);
+  $("#sc-results-number").prepend(totalFeetScrolledString + " feet");
+  $(document).on("click", "#sc-exit-button-x", function() {
+    $(".sc-outer-box").css("display", "none");
+  });
 }
 
 
@@ -151,7 +163,6 @@ $("body").append(createButton);
 $("head").append(modalCSS);
 $("body").append(modalHTML);
 $(document).on("click", "#sc-start-button", function() {
-  //alert("test");
   checkTimerID = setInterval(calculateScroll, intervalTime);
   displayResultsTimerID = setTimeout(displayResults, maxTime);
   currentPosition = window.pageYOffset;
