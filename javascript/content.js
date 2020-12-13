@@ -1,4 +1,4 @@
-
+// Start button creation and styling
 /*jshint multistr: true */
 var createButton = " \
 <button style=' \
@@ -17,18 +17,16 @@ font-size:14px; \
 font-weight:bold; \
 font-family:'Helvetica';' \
 id='sc-start-button'> \
-Start Scrolling! \
+Calculate my scroll! \
 </button>";
 
-var modalHTML = "<!-- Outer box color --> \
+// HTML code for the results modal
+var modalHTML = " \
     <div class='sc-outer-box'> \
-      <!-- Inner box color --> \
       <div class='sc-inner-box'> \
-        <!-- Button to close modal --> \
         <div class='sc-exit-button'> \
         <p id='sc-exit-button-x'>x</p> \
         </div> \
-        <!-- Popup text --> \
         <div class='sc-modal-text'> \
           <h3 class='sc-accent-font'>The Scroll Calculator</h3> \
           <h1>Results</h1> \
@@ -41,6 +39,7 @@ var modalHTML = "<!-- Outer box color --> \
       </div> \
     </div>";
 
+// CSS code for the results modal
 var modalCSS = "<style> \
 @font-face { \
   font-family: 'Anton'; \
@@ -86,6 +85,7 @@ var modalCSS = "<style> \
   color: #723d46; \
   font-weight: bold; \
   text-align: center; \
+  vertical-align: middle; \
 } \
 .sc-modal-text { \
   font-family: 'Helvetica'; \
@@ -126,6 +126,7 @@ var modalCSS = "<style> \
 } \
 </style>";
 
+// Other variables for the functions
 var maxTime = 5000;
 var intervalTime = 1000;
 var currentTime = 0;
@@ -145,24 +146,33 @@ function calculateScroll() {
 
 // Results Modal display wth a 5 minute timer
 function displayResults() {
+  // Uses the Interval ID to stop the calculateScroll function
   clearInterval(checkTimerID);
-  //display:block and position:fixed
+  // Modal visible once time's up
   $(".sc-outer-box").css({"display": "block", "position": "fixed"});
   var totalFeetScrolled = Math.round(totalPixelsScrolled * feetPerPixel);
   var totalFeetScrolledString = String(totalFeetScrolled);
+  // Results added as a string to the body of the modal
   $("#sc-results-number").text(totalFeetScrolledString + " feet");
-  $(document).on("click", "#sc-exit-button-x", function() {
+  // Clicking the 'x' button closes the modal
+  $(document).on("click", ".sc-exit-button", function() {
     $(".sc-outer-box").css("display", "none");
   });
 }
 
-
+// Adds the start button to the body of the browser page
 $("body").append(createButton);
-$("head").append(modalCSS);
+// Adds the (invisible) modal to the body of the browser page
 $("body").append(modalHTML);
+// Adds the modal's css to the head tag of the browser page
+$("head").append(modalCSS);
+// Clicking the start button triggers the main function
 $(document).on("click", "#sc-start-button", function() {
+  // Establish the position and reset 0 pixels
   currentPosition = window.pageYOffset;
   totalPixelsScrolled = 0;
+  // Returns the Interval ID and calls the calculateScroll function every 1 second
   checkTimerID = setInterval(calculateScroll, intervalTime);
+  // Returns the Timeout ID and calls the displayResults function after 5 minutes
   displayResultsTimerID = setTimeout(displayResults, maxTime);
 });
