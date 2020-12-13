@@ -137,8 +137,8 @@ var modalCSS = "<style> \
 var maxTime = 300000;
 var intervalTime = 1000;
 var currentTime = 0;
-var calculateScroll;
 var displayResultsTimerID;
+var checkTimerID;
 var currentPosition;
 var totalPixelsScrolled;
 var feetPerPixel = 0.00086805544619423;
