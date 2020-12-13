@@ -1,7 +1,7 @@
 {
-  "name": "Final Project Prototype",
+  "name": "The Scroll Calculator",
   "version": "1.0",
-  "description": "Trying to build an extension",
+  "description": "An extension that tracks and reports how far a user has scrolled in a 5 minute period.",
   "permissions": ["storage"],
   "content_scripts": [
     {
