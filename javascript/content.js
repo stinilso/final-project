@@ -80,7 +80,7 @@ var modalCSS = "<style> \
   left: 430px; \
   top: 10px; \
 } \
-.sc-exit-button-x { \
+#sc-exit-button-x { \
   font-family: 'Anton', Helvetica, sans-serif; \
   font-size: 30px; \
   color: #723d46; \
@@ -133,8 +133,6 @@ var calculateScroll;
 var displayResultsTimerID;
 var currentPosition;
 var totalPixelsScrolled;
-var totalFeetScrolled;
-var totalFeetScrolledString;
 var feetPerPixel = 0.00086805544619423;
 
 // Scroll calculator with 1 second interval timer
@@ -142,7 +140,6 @@ function calculateScroll() {
     var newPosition = window.pageYOffset;
     var intervalPixelsScrolled = Math.abs(newPosition - currentPosition);
     totalPixelsScrolled += intervalPixelsScrolled;
-    totalFeetScrolled = Math.round(totalPixelsScrolled * feetPerPixel);
     currentPosition = newPosition;
 }
 
@@ -151,8 +148,9 @@ function displayResults() {
   clearInterval(checkTimerID);
   //display:block and position:fixed
   $(".sc-outer-box").css({"display": "block", "position": "fixed"});
+  var totalFeetScrolled = Math.round(totalPixelsScrolled * feetPerPixel);
   var totalFeetScrolledString = String(totalFeetScrolled);
-  $("#sc-results-number").prepend(totalFeetScrolledString + " feet");
+  $("#sc-results-number").text(totalFeetScrolledString + " feet");
   $(document).on("click", "#sc-exit-button-x", function() {
     $(".sc-outer-box").css("display", "none");
   });
@@ -163,8 +161,8 @@ $("body").append(createButton);
 $("head").append(modalCSS);
 $("body").append(modalHTML);
 $(document).on("click", "#sc-start-button", function() {
-  checkTimerID = setInterval(calculateScroll, intervalTime);
-  displayResultsTimerID = setTimeout(displayResults, maxTime);
   currentPosition = window.pageYOffset;
   totalPixelsScrolled = 0;
+  checkTimerID = setInterval(calculateScroll, intervalTime);
+  displayResultsTimerID = setTimeout(displayResults, maxTime);
 });
