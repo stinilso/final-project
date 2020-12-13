@@ -7,8 +7,8 @@ This extension tracks your scrolling when you click the 'Track my scroll' button
 
 To use this extension:
 
-- Download the ZIP file for this repository.
-- Go to chrome://extensions, the extension management page.
+- Click on the green "Code" button near the top of this page and download the ZIP file for this repository.
+- Go to (chrome://extensions "the extension management page").
 - Click the toggle switch in the upper right to enable Developer Mode.
 - Click the "Load Unpacked" button.
 - Select the folder containing this extension.
