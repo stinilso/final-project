@@ -35,6 +35,8 @@ var modalHTML = " \
             <h2 id='sc-results-number'></h2> \
           </div> \
           <p class='sc-results-text'>in the last 5 minutes!</p> \
+          <br> \
+          <p class='sc-results-text'>This was just a few minutes of scrolling on a single page- now imagine how far you scroll in a week. Suggestion: check your screen time report on your phone to get an idea.</p> \
         </div> \
       </div> \
     </div>";
@@ -90,7 +92,8 @@ var modalCSS = "<style> \
 .sc-modal-text { \
   font-family: 'Helvetica'; \
   color: #472d30; \
-  margin-left: 20px; \
+  margin-left: 10px; \
+  margin-right: 10px; \
   position: relative; \
   top: 0px; \
 } \
@@ -123,11 +126,15 @@ var modalCSS = "<style> \
   justify-content: center; \
   position: relative; \
   top: 0px; \
+  text-align: center; \
+} \
+#sc-results-number { \
+  font-family: 'Anton', Helvetica, sans-serif; \
 } \
 </style>";
 
 // Other variables for the functions
-var maxTime = 5000;
+var maxTime = 10000;
 var intervalTime = 1000;
 var currentTime = 0;
 var calculateScroll;
