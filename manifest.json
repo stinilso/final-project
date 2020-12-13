@@ -3,10 +3,6 @@
   "version": "1.0",
   "description": "Trying to build an extension",
   "permissions": ["storage"],
-  "background": {
-      "scripts": ["javascript/background.js"],
-      "persistent": false
-    },
   "content_scripts": [
     {
       "matches": [
